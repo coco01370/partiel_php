@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Albums en vedette :</h2>
+    <div class="row flex mt-4">
+        {% for album in albums %}
+            <div class="col-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="{{ album.cover }}" class="card-img-top" alt="{{ album.name }}">
+                            {{ album.name }}
+                        </h5>
+                        <p class="card-text">Année de sortie :{{ album.releaseYear }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

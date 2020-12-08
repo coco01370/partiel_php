@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Style{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Create new Style</h1>
+
+    {{ include('style/_form.html.twig') }}
+
+    <a href="{{ path('style_index') }}">back to list</a>
+</div>
+{% endblock %}

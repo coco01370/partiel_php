@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Artist{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Create new Artist</h1>
+
+    {{ include('artist/_form.html.twig') }}
+
+    <button class="btn btn-success"><a href="{{ path('artist_index') }}" style="color: white;">back to list</a></button>
+</div>
+{% endblock %}

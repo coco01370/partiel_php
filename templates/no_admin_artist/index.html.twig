@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Artistes{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4" style="text-align:center"> Nos artistes référencés</h1>
+
+    <div class="row">
+        {% for artist in artists %}
+        <div class="col-md-4">
+           <div class="card mb-4 border border-dark">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="{{ artist.picture }}" class="card-img-top" alt="{{ artist.name }}">
+                        {{ artist.name }}
+                    </h5>
+                    <button class="btn btn-primary"><a href="{{ path('artist.show', {id: artist.id}) }}" style="color:black">Voir la fiche de l'artiste</a></button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

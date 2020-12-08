@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Album index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>ReleaseYear</th>
+                <th>Cover</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
+            <tr>
+                <td>{{ album.id }}</td>
+                <td>{{ album.name }}</td>
+                <td>{{ album.releaseYear }}</td>
+                <td>{{ album.cover }}</td>
+                <td>
+                    <button type="button" class="btn btn-success"><a href="{{ path('album_show', {'id': album.id}) }}"  style="color: white">show</a></button>
+                    <button type="button" class="btn btn-success"><a href="{{ path('album_edit', {'id': album.id}) }}"  style="color: white">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-success"><a href="{{ path('album_new') }}" style="color: white">Create new</a></button>
+</div>
+{% endblock %}

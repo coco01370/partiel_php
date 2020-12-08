@@ -1,0 +1,23 @@
+<div class="container">  
+    <a class="btn btn-primary" href="{{ path('artist.index') }}" role="button">Retour a l'accueil</a>
+    <br>
+    <div class="card mb-3">
+        <h5 class="card-title">{{ artist.name }}</h5>
+        <img src="{{artist.picture}}" class="card-img-top" alt="{{ artist.name }}">
+    </div> 
+</div>
+
+<h2>Les albums de l'artiste</h2>
+{% for artist in artists %}
+    <div class="card-body">
+        {{ artist.albums | length }} 
+    </div>
+{% endfor %}
+
+
+<h2>Les artistes similaires</h2>
+{% for artist in artists %}
+    <div class="card-body">
+        {{ artist.style | length }} 
+    </div>
+{% endfor %}
